@@ -1,0 +1,324 @@
+:root {
+    --primary-color: #0056b3;
+    --secondary-color: #007bff;
+    --accent-color: #28a745;
+    --text-color: #333;
+    --light-text-color: #666;
+    --border-color: #ddd;
+    --background-light: #f8f9fa;
+    --background-white: #fff;
+    --shadow-light: rgba(0, 0, 0, 0.1);
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Roboto', sans-serif;
+    line-height: 1.6;
+    color: var(--text-color);
+    background-color: var(--background-light);
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+.container {
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px 0;
+}
+
+a {
+    text-decoration: none;
+    color: var(--primary-color);
+    transition: color 0.3s ease;
+}
+
+a:hover {
+    color: var(--secondary-color);
+}
+
+ul {
+    list-style: none;
+}
+
+.header {
+    background-color: var(--background-white);
+    box-shadow: 0 2px 4px var(--shadow-light);
+    padding: 15px 0;
+}
+
+.header .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    font-size: 1.8em;
+    font-weight: 700;
+    color: var(--primary-color);
+    display: flex;
+    align-items: center;
+}
+
+.logo i {
+    margin-right: 10px;
+    color: var(--secondary-color);
+}
+
+.nav ul {
+    display: flex;
+}
+
+.nav ul li {
+    margin-left: 25px;
+}
+
+.nav ul li a {
+    color: var(--light-text-color);
+    font-weight: 400;
+    padding: 5px 0;
+    position: relative;
+}
+
+.nav ul li a.active,
+.nav ul li a:hover {
+    color: var(--primary-color);
+}
+
+.nav ul li a.active::after,
+.nav ul li a:hover::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: -5px;
+    width: 100%;
+    height: 2px;
+    background-color: var(--primary-color);
+    transform: scaleX(0);
+    transition: transform 0.3s ease;
+}
+
+.nav ul li a.active::after {
+    transform: scaleX(1);
+}
+
+.user-profile {
+    display: flex;
+    align-items: center;
+}
+
+.username {
+    margin-right: 10px;
+    font-weight: 500;
+    color: var(--text-color);
+}
+
+.avatar {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    border: 2px solid var(--primary-color);
+    object-fit: cover;
+}
+
+.main-content {
+    display: flex;
+    flex: 1;
+    padding-top: 30px;
+    padding-bottom: 30px;
+}
+
+.sidebar {
+    flex: 0 0 220px;
+    background-color: var(--background-white);
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px var(--shadow-light);
+    margin-right: 30px;
+    height: fit-content;
+}
+
+.sidebar h2 {
+    font-size: 1.3em;
+    color: var(--primary-color);
+    margin-bottom: 20px;
+    border-bottom: 1px solid var(--border-color);
+    padding-bottom: 10px;
+}
+
+.sidebar ul li {
+    margin-bottom: 15px;
+}
+
+.sidebar ul li a {
+    display: flex;
+    align-items: center;
+    color: var(--light-text-color);
+    font-weight: 400;
+    padding: 8px 10px;
+    border-radius: 5px;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.sidebar ul li a:hover {
+    background-color: var(--background-light);
+    color: var(--primary-color);
+}
+
+.sidebar ul li a i {
+    margin-right: 10px;
+    font-size: 1.1em;
+}
+
+.dashboard-section {
+    flex: 1;
+    background-color: var(--background-white);
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px var(--shadow-light);
+}
+
+.dashboard-section h2 {
+    font-size: 1.8em;
+    color: var(--primary-color);
+    margin-bottom: 25px;
+}
+
+.dashboard-cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 25px;
+    margin-bottom: 40px;
+}
+
+.card {
+    background-color: var(--background-white);
+    border: 1px solid var(--border-color);
+    border-left: 5px solid var(--primary-color);
+    border-radius: 8px;
+    padding: 20px;
+    box-shadow: 0 4px 8px var(--shadow-light);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: flex-start;
+    position: relative;
+    overflow: hidden;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 16px var(--shadow-light);
+}
+
+.card h3 {
+    font-size: 1.2em;
+    color: var(--light-text-color);
+    margin-bottom: 10px;
+}
+
+.card-value {
+    font-size: 2.5em;
+    font-weight: 700;
+    color: var(--primary-color);
+    margin-bottom: 15px;
+}
+
+.card-icon {
+    position: absolute;
+    bottom: 15px;
+    right: 15px;
+    font-size: 3.5em;
+    color: rgba(0, 86, 179, 0.1);
+    z-index: 0;
+}
+
+.recent-activity {
+    margin-top: 30px;
+}
+
+.recent-activity h3 {
+    font-size: 1.5em;
+    color: var(--primary-color);
+    margin-bottom: 20px;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    background-color: var(--background-white);
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 2px 4px var(--shadow-light);
+}
+
+table thead {
+    background-color: var(--primary-color);
+    color: white;
+}
+
+table th,
+table td {
+    padding: 15px;
+    text-align: left;
+    border-bottom: 1px solid var(--border-color);
+}
+
+table th {
+    font-weight: 500;
+    text-transform: uppercase;
+    font-size: 0.9em;
+}
+
+table tbody tr:last-child td {
+    border-bottom: none;
+}
+
+table tbody tr:hover {
+    background-color: var(--background-light);
+}
+
+.footer {
+    background-color: var(--text-color);
+    color: white;
+    padding: 20px 0;
+    text-align: center;
+    margin-top: 40px;
+}
+
+@media (max-width: 768px) {
+    .header .container {
+        flex-direction: column;
+        text-align: center;
+    }
+    .nav ul {
+        margin-top: 15px;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+    .nav ul li {
+        margin: 5px 10px;
+    }
+    .user-profile {
+        margin-top: 15px;
+    }
+    .main-content {
+        flex-direction: column;
+    }
+    .sidebar {
+        margin-right: 0;
+        margin-bottom: 30px;
+        width: 100%;
+    }
+    .dashboard-cards {
+        grid-template-columns: 1fr;
+    }
+}
